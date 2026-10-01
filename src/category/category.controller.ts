@@ -6,6 +6,7 @@ import {
   Param,
   Patch,
   Post,
+  Put,
 } from '@nestjs/common';
 import { CategoryService } from './category.service.js';
 import { CreateCategoryDto } from './dto/category_create.req.dto.js';
@@ -43,6 +44,11 @@ export class CategoryController {
   @Patch(':id')
   update(@Param('id') id: string, @Body() dto: UpdateCategoryDto) {
     return this.categoryService.update(+id, dto);
+  }
+
+  @Put(':id')
+  replace(@Param('id') id: string, @Body() dto: CreateCategoryDto) {
+    return this.categoryService.replace(+id, dto);
   }
 
   @Delete(':id')
