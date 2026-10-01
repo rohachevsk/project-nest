@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller.js';
 import { AppService } from './app.service.js';
 import { CategoryModule } from './category/category.module.js';
+import { ProductModule } from './product/product.module.js';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module.js';
 import 'dotenv/config';
@@ -19,6 +20,7 @@ import 'dotenv/config';
       autoLoadEntities: true,
     }),
     CategoryModule,
+    ProductModule,
     UserModule,
   ],
   controllers: [AppController],
