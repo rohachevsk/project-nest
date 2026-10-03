@@ -3,8 +3,11 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+import type { Relation } from 'typeorm';
+import { Product } from '../../product/entities/product.entity.js';
 
 @Entity('categories')
 export class Category {
@@ -29,4 +32,8 @@ export class Category {
   @ManyToOne(() => Category, { nullable: true, onDelete: 'SET NULL' })
   @JoinColumn({ name: 'parent_id' })
   parent: Category | null;
+
+  // інверсний бік зв’язку: продукти цієї категорії (колонок у БД не додає)
+  @OneToMany(() => Product, (product) => product.category)
+  products: Relation<Product>[];
 }

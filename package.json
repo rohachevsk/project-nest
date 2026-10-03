@@ -19,7 +19,13 @@
     "test:watch": "vitest",
     "test:cov": "vitest run --coverage",
     "test:debug": "vitest --inspect-brk --no-file-parallelism",
-    "test:e2e": "vitest run --config ./vitest.config.e2e.ts"
+    "test:e2e": "vitest run --config ./vitest.config.e2e.ts",
+    "typeorm": "typeorm-ts-node-esm -d src/data-source.ts",
+    "migration:show": "npm run typeorm -- migration:show",
+    "migration:run": "npm run typeorm -- migration:run",
+    "migration:revert": "npm run typeorm -- migration:revert",
+    "seed:roles": "node --loader ts-node/esm src/seeders/seed-roles.ts",
+    "seed:geo": "node --loader ts-node/esm src/seeders/seed-geo.ts"
   },
   "dependencies": {
     "@nestjs/common": "^12.0.1",

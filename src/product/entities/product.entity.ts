@@ -5,6 +5,7 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+import type { Relation } from 'typeorm';
 import { Category } from '../../category/entities/category.entity.js';
 
 @Entity('products')
@@ -33,5 +34,5 @@ export class Product {
   // кожен продукт відноситься до категорії
   @ManyToOne(() => Category, { nullable: false, onDelete: 'RESTRICT' })
   @JoinColumn({ name: 'category_id' })
-  category: Category;
+  category: Relation<Category>;
 }

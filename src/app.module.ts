@@ -5,6 +5,7 @@ import { CategoryModule } from './category/category.module.js';
 import { ProductModule } from './product/product.module.js';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module.js';
+import { GeoModule } from './geo/geo.module.js';
 import 'dotenv/config';
 
 @Module({
@@ -21,6 +22,7 @@ import 'dotenv/config';
     }),
     CategoryModule,
     ProductModule,
+    GeoModule,
     UserModule,
   ],
   controllers: [AppController],
